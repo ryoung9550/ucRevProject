@@ -2,8 +2,11 @@
 
 default: bootstrap.bin
 
+run:
+	qemu-system-i386 -fda bootstrap.bin
+
 bootstrap.bin: bootstrap.asm
-	nasm -f bin $^ -o $@
+	nasm -g -f bin $^ -o $@
 
 clean:
 	rm *.bin
